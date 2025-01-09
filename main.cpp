@@ -1,7 +1,3 @@
-/* Programmer: Bella Picasso-Kennedy 
-   Purpose: CS 326 Midterm - Palindrome Checker in C++
-*/
-
 #include <iostream>
 using namespace std;
 
@@ -38,7 +34,7 @@ int menu(){ //presents to the user after each word, phrase, or sequence is check
     cout << "2. Exit " <<   endl;
     cout << "Enter your choice: ";
     getline(cin, input);
-    choice = stoi(input); //convert string to integer, otherwise following iteration will execute incorrectly
+    choice = stoi(input); //converts string to int, otherwise following expression executes incorrectly
     while(choice != 1 && choice != 2){
         cout << "Invalid option! Try again: ";
         getline(cin, input);
@@ -51,19 +47,22 @@ string userInput(){ //gets user input, will eventually pass this string into isP
     string input, finalString;
     cout << "Enter a word to check if it's a palindrome: ";
     getline(cin, input);
-    return input;
+    return input; //returns user input as they initially entered it into the terminal
 }
 
 bool isPalindrome(string s){
     string finalStr;
-    for(int i = 0; i < s.length(); i++){ //removes all leading and trailing spaces, done in this function to avoid phrases printing with no spaces to the terminal
+    for(int i = 0; i < s.length(); i++){ //removes all leading, trailing, and seperation spaces. done in this function to avoid the phrase being tampered w/ when displayed to the terminal 
         if(s[i] != ' '){
-            if(s[i] >= 'A' && s[i] <= 'Z'){
-            finalStr[i] = s[i] + 32; //converts characters from uppercase to lowercase so the program is not case sensitive
-            }
+            finalStr += s[i];
         }
     }
     int n = finalStr.length(); //calculate the length of the user's string
+    for(int i = 0; i <= n; i++){
+        if(finalStr[i] >= 'A' && finalStr[i] <= 'Z'){
+            finalStr[i] = finalStr[i] + 32; //converts the uppercase to lowercase so the program is not case sensitive
+        }
+    }
     for(int i = 0; i < n/2; i++){ //iterates through only half of the string (we only need to check half for palindromes)
         if(finalStr[i] != finalStr[n - i - 1]){ //checks first element of the string with the last element
             return false; //if characters are not the same, it's not a palindrome! 
