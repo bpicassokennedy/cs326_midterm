@@ -1,11 +1,10 @@
 #include <iostream>
 using namespace std;
 
-string userInput();
+string userInput(); 
 bool isPalindrome(string s);
 
 int main(){
-    cout << "PALINDROME CHECKER!" << endl;
     string input = userInput();
     bool palindrome = isPalindrome(input);
     if(palindrome){
@@ -16,7 +15,7 @@ int main(){
     return 0;
 }
 
-string userInput(){
+string userInput(){ //gets user input, will eventually pass this string into isPalindrome 
     string word;
     cout << "Enter a word to check if it's a palindrome: ";
     getline(cin, word);
