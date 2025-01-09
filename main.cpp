@@ -52,17 +52,17 @@ string userInput(){ //gets user input, will eventually pass this string into isP
 
 bool isPalindrome(string s){
     string finalStr;
-    for(int i = 0; i < s.length(); i++){ //removes all leading, trailing, and seperation spaces. done in this function to avoid the phrase being tampered w/ when displayed to the terminal 
-        if(s[i] != ' '){
-            finalStr += s[i];
+    for(int i = 0; i < s.length(); i++){ 
+        if(s[i] != ' '){ //removes all leading, trailing, and seperation spaces. done in this function to avoid the phrase being tampered w/ when displayed to the terminal 
+            if(s[i] >= 'A' && s[i] <= 'Z'){ //converts capital letters to lowercase, so the palindrome check is not case sensitive
+                finalStr += s[i] + 32; 
+            }
+            else{
+                finalStr += s[i]; //if character is already lowercase, just add it into the new string
+            }
         }
     }
     int n = finalStr.length(); //calculate the length of the user's string
-    for(int i = 0; i <= n; i++){
-        if(finalStr[i] >= 'A' && finalStr[i] <= 'Z'){
-            finalStr[i] = finalStr[i] + 32; //converts the uppercase to lowercase so the program is not case sensitive
-        }
-    }
     for(int i = 0; i < n/2; i++){ //iterates through only half of the string (we only need to check half for palindromes)
         if(finalStr[i] != finalStr[n - i - 1]){ //checks first element of the string with the last element
             return false; //if characters are not the same, it's not a palindrome! 
