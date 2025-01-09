@@ -1,3 +1,7 @@
+/* Programmer: Bella Picasso-Kennedy 
+   Purpose: CS 326 Midterm - Palindrome Checker in C++
+*/
+
 #include <iostream>
 using namespace std;
 
@@ -34,7 +38,7 @@ int menu(){ //presents to the user after each word, phrase, or sequence is check
     cout << "2. Exit " <<   endl;
     cout << "Enter your choice: ";
     getline(cin, input);
-    choice = stoi(input);
+    choice = stoi(input); //convert string to integer, otherwise following iteration will execute incorrectly
     while(choice != 1 && choice != 2){
         cout << "Invalid option! Try again: ";
         getline(cin, input);
