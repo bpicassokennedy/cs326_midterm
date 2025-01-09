@@ -44,7 +44,7 @@ int menu(){ //presents to the user after each word, phrase, or sequence is check
 }
 
 string userInput(){ //gets user input, will eventually pass this string into isPalindrome 
-    string input, finalString;
+    string input;
     cout << "Enter a word to check if it's a palindrome: ";
     getline(cin, input);
     return input; //returns user input as they initially entered it into the terminal
