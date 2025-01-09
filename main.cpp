@@ -47,23 +47,21 @@ string userInput(){ //gets user input, will eventually pass this string into isP
     string input, finalString;
     cout << "Enter a word to check if it's a palindrome: ";
     getline(cin, input);
-    for(int i = 0; i < input.length(); i++){ //removes and leading and trailing spaces
-        if(input[i] != ' '){
-            finalString += input[i];
-        }
-    }
-    return finalString;
+    return input;
 }
 
 bool isPalindrome(string s){
-    int n = s.length(); //calculate the length of the user's string
-    for(int i = 0; i <= n; i++){
-        if(s[i] >= 'A' && s[i] <= 'Z'){
-            s[i] = s[i] + 32; //converts the uppercase to lowercase so the program is not case sensitive
+    string finalStr;
+    for(int i = 0; i < s.length(); i++){ //removes all leading and trailing spaces, done in this function to avoid phrases printing with no spaces to the terminal
+        if(s[i] != ' '){
+            if(s[i] >= 'A' && s[i] <= 'Z'){
+            finalStr[i] = s[i] + 32; //converts characters from uppercase to lowercase so the program is not case sensitive
+            }
         }
     }
+    int n = finalStr.length(); //calculate the length of the user's string
     for(int i = 0; i < n/2; i++){ //iterates through only half of the string (we only need to check half for palindromes)
-        if(s[i] != s[n - i - 1]){ //checks first element of the string with the last element
+        if(finalStr[i] != finalStr[n - i - 1]){ //checks first element of the string with the last element
             return false; //if characters are not the same, it's not a palindrome! 
         }
     }
